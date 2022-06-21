@@ -9,7 +9,7 @@ class hashTable {
   hashMethod(key) {
     let hash = 0;
     for (let i = 0; i < key.length; i++) {
-      hash = (hash + key.charCodeAr(i) * i) % this.data.length;
+      hash = (hash + key.charCodeAt(i) * i) % this.data.length;
     }
     return hash;
   }
@@ -22,6 +22,7 @@ class hashTable {
     }
     this.data[address].push([key, value]); // Si hay valores entonces solo agrega los nuevos.
     // Asi evitamos que sobreescriba los datos.
+    return this.data;
   }
 
   // Nos regresará el valor pasandole la key.
@@ -37,6 +38,21 @@ class hashTable {
       }
     }
     return undefined; // Si no lo encuentra retorna undefined.
+  }
+
+  // Eliminará el valor dando la key.
+  delete(key) {
+    const address = this.hashMethod(key);
+    const currentBucket = this.data[address];
+    if (currentBucket) {
+      // Busca el valor a pesar de que hubiera una colision.
+      for (let i = 0; i < currentBucket.length; i++) {
+        if (currentBucket[i][0] === key) {
+          this.data[address].splice(i, 1);
+        }
+      }
+    }
+    return this.data;
   }
 }
 
