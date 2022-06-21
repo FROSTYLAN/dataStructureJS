@@ -1,0 +1,33 @@
+/*
+  hashTable en otros lenguajes:
+
+    - JavaScript | Objetos
+    - Python     | Diccionarios
+    - Java       | Maps
+    - Go         | Maps
+    - Ruby       | Hashes 
+    
+*/
+
+// Son similares a los objetos en realidad:
+// Consta de un KEY y un VALUE.
+
+// La diferencia es que la key q le pases se convertirá en referencia en memoria.
+// Esto ocurre a traves del HASH FUNCTION.
+// Y a la referencia en memoria se le conoce como BUCKETS.
+// https://static.platzi.com/media/user_upload/8-hash-table-fe7079de-8834-41d5-b18f-ce58bae91844.jpg
+
+/*
+  Metodos:
+    
+    - insert | Insertar elemento en la tabla.
+    - search | Buscar elemento por key.
+    - delete | Borrar un elemento.
+*/
+
+/*
+  Colisión de Hash Table
+  - Ocurre que en ocasiones al pasar un key distinto puede generar un mismo hash.
+  - Esto no se puede evitar, pero es importante saber como tratarlas.
+  - https://static.platzi.com/media/user_upload/Screenshot%202022-06-21%20012055-4e80f8d6-abf9-46c2-bde1-07aec5a76909.jpg  
+*/
