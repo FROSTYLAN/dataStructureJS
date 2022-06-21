@@ -23,6 +23,21 @@ class hashTable {
     this.data[address].push([key, value]); // Si hay valores entonces solo agrega los nuevos.
     // Asi evitamos que sobreescriba los datos.
   }
+
+  // Nos regresará el valor pasandole la key.
+  get(key) {
+    const address = this.hashMethod(key);
+    const currentBucket = this.data[address]; // Almacenamos el bucket a dende hace refenrecia nuestra key.
+    if (currentBucket) {
+      // Busca el valor a pesar de que hubiera una colision.
+      for (let i = 0; i < currentBucket.length; i++) {
+        if (currentBucket[i][0] === key) {
+          return currentBucket[i][1];
+        }
+      }
+    }
+    return undefined; // Si no lo encuentra retorna undefined.
+  }
 }
 
 const myHashTable = new hashTable(50); // Generamos mi hashtable con 50 espacios.
